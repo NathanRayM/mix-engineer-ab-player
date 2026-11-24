@@ -24,7 +24,7 @@ This project emphasizes **state management**, **media APIs**, and **user-focused
 
 This project demonstrates advanced DOM manipulation, event handling, audio state synchronization, and thoughtful component architecture — making it a strong portfolio piece for real-world front-end applications.
 
-[Project Folder](./mix-engineer-ab-player) | [Live Demo](https://NathanRayM.github.io/personal-projects/mix-engineer-ab-player/) | [Repo](https://github.com/NathanRayM/personal-projects)
+[Live Demo](https://nathanraym.github.io/mix-engineer-ab-player/) | [Repo](https://github.com/NathanRayM/mix-engineer-ab-player.git)
 
 ## Tech Stack
 
