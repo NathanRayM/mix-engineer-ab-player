@@ -36,35 +36,49 @@ ol {
 }
 
 /*=== CSS Custom Variables ===*/
+
 :root {
-  --body-background: rgb(229, 231, 235);
-  --white-primary: rgba(255, 255, 255, 0.95);
-  --grey-secondary: rgba(255, 255, 255, 0.65);
-  --grey-tertiary: rgba(255, 255, 255, 0.45);
-  --grey-disabled: rgba(255, 255, 255, 0.25);
-  --playlist-active-bg: rgba(255, 255, 255, 0.12);
+  --body-background: radial-gradient(
+    circle at center,
+    #1c2226 0%,
+    #13181c 50%,
+    #090c0f 100%
+  );
+
+  --white-primary: #f5f7f8;
+  --grey-secondary: #b5c1c5;
+  --grey-tertiary: #263338;
+  --grey-disabled: #3c494e;
+  --playlist-active-bg: #284a50;
   --dark-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  --slider-active-background: rgba(254, 180, 123, 0.8);
+  --slider-active-background: #259ead;
+
+  --panel-border: #35464d;
+
+  /*== Additional Colors ==*/
+  --color-primary: #259ead;
+  --color-primary-hover: #36b8c7;
+  --color-progress-track: #41545b;
+  --color-playlist-hover: #304249;
+  --color-divider: #35464d;
 
   /*== Gradient Colors ==*/
   --player-background: linear-gradient(
     180deg,
-    rgb(74, 88, 117) 0%,
-    rgb(95, 111, 143) 50%,
-    rgb(120, 138, 170) 100%
+    #202c30 0%,
+    #233238 50%,
+    #26383e 100%
   );
+
   --playlist-background: linear-gradient(
     180deg,
-    rgb(120, 138, 170) 0%,
-    rgb(95, 111, 143) 50%,
-    rgb(74, 88, 117) 100%
+    #1c272b 0%,
+    #1e292e 50%,
+    #202c30 100%
   );
-  --button-background: radial-gradient(
-    circle at top,
-    rgb(139, 157, 187),
-    rgb(120, 138, 170)
-  );
+
+  --button-background: radial-gradient(circle at top, #f5f7f8, #b5c1c5);
 
   /*=== CSS Custom Font Weights ===*/
   --font-weight-light: 400;
@@ -109,7 +123,7 @@ main {
 .player__artwork {
   width: 80%;
   border-radius: 50%;
-  border: 4px solid var(--grey-secondary);
+  border: 4px solid var(--color-primary);
   box-shadow: var(--dark-box-shadow);
   margin-bottom: 2rem;
 }
@@ -117,10 +131,12 @@ main {
 .player__title {
   color: var(--white-primary);
   font-weight: var(--font-weight-bold);
+  letter-spacing: -0.025em;
 }
 
 .player__artist {
   color: var(--grey-secondary);
+  letter-spacing: 0.015em;
 }
 
 /*== Transport Controls ==*/
@@ -133,13 +149,26 @@ main {
 
 .fa-solid {
   font-size: 1.5rem;
-  color: var(--grey-secondary);
+  color: var(--white-primary);
   cursor: pointer;
+}
+
+.fa-backward,
+.fa-forward {
+  text-shadow: 0 0 8px rgba(37, 158, 173, 0.45);
+  transition: text-shadow 0.25s ease, color 0.25s ease;
+}
+
+.player__button--play {
+  padding: 0.8rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  aspect-ratio: 1/1;
 }
 
 .fa-solid.fa-play,
 .fa-solid.fa-pause {
-  font-size: 3rem;
+  font-size: 1.5rem;
   color: var(--white-primary);
 }
 
@@ -160,7 +189,7 @@ main {
 #progress {
   -webkit-appearance: none;
   height: 6px;
-  background: var(--playlist-active-bg);
+  background: var(--color-progress-track);
   margin: 16px 0;
   cursor: pointer;
 }
@@ -169,7 +198,7 @@ main {
   -webkit-appearance: none;
   width: 1.2rem;
   height: 1.2rem;
-  background-color: var(--white-primary);
+  background-color: var(--color-primary);
   border-radius: 50%;
   box-shadow: var(--dark-box-shadow);
 }
@@ -186,7 +215,7 @@ main {
 .select__ab {
   width: 50px;
   height: 20px;
-  background: var(--playlist-active-bg);
+  background: var(--grey-disabled);
   border-radius: 10px;
   cursor: pointer;
   position: relative;
@@ -216,6 +245,7 @@ main {
 .player__ab-status {
   color: var(--white-primary);
   font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
 }
 
 /*=== Playlist ===*/
@@ -235,7 +265,7 @@ main {
 
 .player__playlist--button .fa-regular {
   font-size: 2rem;
-  color: var(--white-primary);
+  color: var(--color-primary);
   cursor: pointer;
 }
 
@@ -276,14 +306,17 @@ main {
 .playlist-info-title {
   font-size: 0.85rem;
   font-weight: var(--font-weight-bold);
+  color: var(--white-primary);
 }
 
 .playlist-info-artist {
   font-size: 0.75rem;
+  color: var(--grey-secondary);
 }
 
 .player-info-duration {
   font-size: 0.75rem;
+  color: var(--grey-secondary);
 }
 
 .playlist-image {
@@ -300,15 +333,25 @@ main {
 
 /*=== Hover And Focus States ===*/
 .player__playlist-item:hover {
-  background-color: var(--grey-secondary);
+  background-color: var(--color-playlist-hover);
 }
 
 .player__playlist-item.active {
   border-left: 7px solid var(--slider-active-background);
+  background-color: var(--playlist-active-bg);
 }
 
 .fa-solid:active {
-  color: var(--white-primary);
+  color: var(--color-primary-hover);
+}
+
+.fa-backward:hover,
+.fa-forward:hover {
+  color: var(--color-primary-hover);
+}
+
+.player__button--play:hover {
+  background-color: var(--color-primary-hover);
 }
 
 /*=== Media Query 820px ===*/

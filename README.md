@@ -6,7 +6,7 @@ This repository contains a custom-built audio player designed specifically for a
 
 ### Mix Engineer A/B Audio Player
 
-![Mix Engineer Audio Player Screenshot](images/mix-engineer-ab-player-design.png)
+![Mix Engineer Audio Player Screenshot](images/mix-engineer-ab-player-design-two.png)
 
 The Mix Engineer A/B Audio Player is a responsive, JavaScript-driven web audio player that allows users to seamlessly switch between two versions of the same track (A/B comparison) without losing playback position.
 

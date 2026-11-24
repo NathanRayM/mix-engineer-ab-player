@@ -253,8 +253,8 @@ audio.addEventListener("timeupdate", () => {
   progress.style.background = `
   linear-gradient(
     to right,
-    rgba(254, 180, 123, 0.8) ${percent}%,
-    rgba(255, 255, 255, 0.12) ${percent}%
+    var(--color-primary) ${percent}%,
+    var(--color-progress-track) ${percent}%
   )
 `;
 });
@@ -269,10 +269,11 @@ progress.addEventListener("input", () => {
 
   const percent = (audio.currentTime / audio.duration) * 100;
   progress.style.background = `
+
   linear-gradient(
     to right,
-    rgba(254, 180, 123, 0.8) ${percent}%,
-    rgba(255, 255, 255, 0.12) ${percent}%
+    var(--color-primary) ${percent}%,
+    var(--color-progress-track) ${percent}%
   )
 `;
 });
